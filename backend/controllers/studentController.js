@@ -123,7 +123,8 @@ export const uploadResume = async (req, res) => {
     }
 
     // Update resume URL
-    profile.resumeUrl = `/uploads/${req.file.filename}`;
+    // Cloudinary stores the full secure URL in req.file.path
+    profile.resumeUrl = req.file.path || `/uploads/${req.file.filename}`;
     await profile.save();
 
     res.status(200).json({

@@ -1,6 +1,8 @@
 import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import cloudinary from '../config/cloudinary.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,8 +39,31 @@ const upload = multer({
   }
 });
 
+// Configure Cloudinary storage for resumes
+const resumeStorage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'prashikshan_resumes',
+    format: async (req, file) => 'pdf',
+    public_id: (req, file) => {
+      const uniqueSuffix = Date.now() + '_' + Math.round(Math.random() * 1E9);
+      const basename = path.basename(file.originalname, path.extname(file.originalname));
+      return `${req.user?.id || 'unknown'}_${uniqueSuffix}_${basename}`;
+    },
+  },
+});
+
+// Configure multer for Cloudinary resume upload
+const uploadResumeCloudinary = multer({
+  storage: resumeStorage,
+  fileFilter: fileFilter,
+  limits: {
+    fileSize: 5 * 1024 * 1024, // 5MB limit
+  }
+});
+
 // Middleware for single resume upload
-export const uploadResume = upload.single('resume');
+export const uploadResume = uploadResumeCloudinary.single('resume');
 
 // Middleware for offer letter upload (PDF only, same config)
 export const uploadOfferLetter = upload.single('offerLetter');
