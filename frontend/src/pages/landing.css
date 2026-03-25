@@ -92,7 +92,7 @@
 }
 
 .nav-actions {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 12px;
 }
@@ -302,6 +302,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-height: 48px;
 }
 
 .hero-btn-primary:hover {
@@ -824,6 +825,10 @@
 }
 
 /* ── Responsive ──────────────────────────────────── */
+@media (min-width: 769px) {
+  .nav-actions { display: flex; }
+}
+
 @media (max-width: 1024px) {
   .features-grid { grid-template-columns: 1fr 1fr; }
   .steps-container { grid-template-columns: 1fr 1fr; }

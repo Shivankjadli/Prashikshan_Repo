@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import {
   LayoutDashboard, User, Briefcase, FileText, BookOpen,
   ClipboardList, Gift, BarChart3, CheckSquare, Users,
-  GraduationCap, LogOut
+  GraduationCap, LogOut, X
 } from 'lucide-react';
 
 const studentLinks = [
@@ -42,7 +42,7 @@ const roleBadge = {
   College: { label: 'College', color: 'badge-success' },
 };
 
-export default function Sidebar() {
+export default function Sidebar({ open, onClose }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const links = roleLinks[user?.role] || [];
@@ -53,10 +53,24 @@ export default function Sidebar() {
     navigate('/login');
   };
 
+  const handleNavClick = () => {
+    // Close sidebar on mobile when navigating
+    if (onClose) onClose();
+  };
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar${open ? ' sidebar-open' : ''}`}>
       <div className="sidebar-logo">
-        <h2>Prashikshan</h2>
+        <div className="sidebar-logo-row">
+          <h2>Prashikshan</h2>
+          <button
+            className="sidebar-close mobile-only"
+            onClick={onClose}
+            aria-label="Close menu"
+          >
+            <X size={18} />
+          </button>
+        </div>
         <span>Academia Industry Interface</span>
       </div>
 
@@ -68,6 +82,7 @@ export default function Sidebar() {
             to={to}
             end={to.split('/').length <= 2}
             className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+            onClick={handleNavClick}
           >
             <Icon size={17} />
             {label}
