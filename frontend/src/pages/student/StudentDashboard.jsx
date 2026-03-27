@@ -25,10 +25,10 @@ export default function StudentDashboard() {
   }, []);
 
   const stats = [
-    { label: 'Profile Complete', value: `${profile?.completionPercentage || 0}%`, icon: User, color: '#7c5cfc' },
-    { label: 'Applications', value: apps.length, icon: FileText, color: '#60a5fa' },
-    { label: 'Selected', value: apps.filter(a => a.status === 'selected').length, icon: CheckCircle, color: '#22d3a5' },
-    { label: 'Offers', value: offers.length, icon: Gift, color: '#fbbf24' },
+    { label: 'Profile Complete', value: `${profile?.completionPercentage || 0}%`, icon: User, color: '#16a34a' },
+    { label: 'Applications', value: apps.length, icon: FileText, color: '#3b82f6' },
+    { label: 'Selected', value: apps.filter(a => a.status === 'selected').length, icon: CheckCircle, color: '#22c55e' },
+    { label: 'Offers', value: offers.length, icon: Gift, color: '#eab308' },
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function StudentDashboard() {
       <div className="grid-4 mb-8">
         {stats.map(({ label, value, icon: Icon, color }) => (
           <div className="stat-card" key={label}>
-            <div className="icon" style={{ background: `${color}22` }}>
+            <div className="icon" style={{ background: `${color}12`, borderRadius: 12 }}>
               <Icon size={22} color={color} />
             </div>
             <div className="value">{loading ? '—' : value}</div>
@@ -82,7 +82,7 @@ export default function StudentDashboard() {
         <div className="card">
           <h3 className="font-semibold mb-4" style={{ fontSize: '1rem' }}>Recent Applications</h3>
           {apps.length === 0 ? (
-            <p className="text-muted text-sm">No applications yet. <Link to="/student/jobs" style={{ color: 'var(--accent-light)' }}>Browse jobs →</Link></p>
+            <p className="text-muted text-sm">No applications yet. <Link to="/student/jobs" style={{ color: 'var(--primary)', fontWeight: 600 }}>Browse jobs →</Link></p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {apps.slice(0, 4).map(app => (

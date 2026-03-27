@@ -39,7 +39,7 @@ import CollegeAnalytics from './pages/college/CollegeAnalytics';
 export default function App() {
   return (
     <AuthProvider>
-      <Toaster position="top-right" toastOptions={{ style: { background: '#16162a', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' } }} />
+      <Toaster position="top-right" toastOptions={{ style: { background: '#ffffff', color: '#1a1a2e', border: '1px solid #e2e8f0', boxShadow: '0 4px 16px rgba(0,0,0,0.08)', borderRadius: '12px', fontFamily: "'Poppins', sans-serif" } }} />
       <BrowserRouter>
         <Routes>
           {/* Public / Auth */}

@@ -22,7 +22,6 @@ export default function RecruiterDashboard() {
       setJobs(myJobs);
       setOffers(oRes.data.offers || []);
 
-      // Default selection to the most recent approved job (if any)
       const firstApproved = myJobs.find(j => j.approvedByCollege);
       if (firstApproved?._id) setSelectedJob(firstApproved._id);
     }).finally(() => setLoading(false));
@@ -48,10 +47,10 @@ export default function RecruiterDashboard() {
   const acceptedOffers = offers.filter(o => o.status === 'accepted').length;
 
   const stats = [
-    { label: 'Total Jobs', value: jobs.length, icon: Briefcase, color: '#7c5cfc' },
-    { label: 'Approved Jobs', value: approvedJobs, icon: Briefcase, color: '#22d3a5' },
-    { label: 'Offers Sent', value: offers.length, icon: Gift, color: '#fbbf24' },
-    { label: 'Accepted', value: acceptedOffers, icon: Users, color: '#60a5fa' },
+    { label: 'Total Jobs', value: jobs.length, icon: Briefcase, color: '#16a34a' },
+    { label: 'Approved Jobs', value: approvedJobs, icon: Briefcase, color: '#22c55e' },
+    { label: 'Offers Sent', value: offers.length, icon: Gift, color: '#eab308' },
+    { label: 'Accepted', value: acceptedOffers, icon: Users, color: '#3b82f6' },
   ];
 
   return (
@@ -64,7 +63,7 @@ export default function RecruiterDashboard() {
       <div className="grid-4 mb-8">
         {stats.map(({ label, value, icon: Icon, color }) => (
           <div className="stat-card" key={label}>
-            <div className="icon" style={{ background: `${color}22` }}>
+            <div className="icon" style={{ background: `${color}12`, borderRadius: 12 }}>
               <Icon size={22} color={color} />
             </div>
             <div className="value">{loading ? '—' : value}</div>

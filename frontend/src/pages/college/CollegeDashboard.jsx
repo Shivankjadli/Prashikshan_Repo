@@ -16,10 +16,10 @@ export default function CollegeDashboard() {
   }, []);
 
   const stats = [
-    { label: 'Total Students', value: data?.students?.total || 0, icon: GraduationCap, color: '#7c5cfc' },
-    { label: 'Approved Students', value: data?.students?.eligible || 0, icon: CheckCircle, color: '#22d3a5' },
-    { label: 'Total Jobs', value: data?.jobs?.total || 0, icon: Briefcase, color: '#60a5fa' },
-    { label: 'Total Offers', value: data?.offers?.total || 0, icon: FileText, color: '#fbbf24' },
+    { label: 'Total Students', value: data?.students?.total || 0, icon: GraduationCap, color: '#16a34a' },
+    { label: 'Approved Students', value: data?.students?.eligible || 0, icon: CheckCircle, color: '#22c55e' },
+    { label: 'Total Jobs', value: data?.jobs?.total || 0, icon: Briefcase, color: '#3b82f6' },
+    { label: 'Total Offers', value: data?.offers?.total || 0, icon: FileText, color: '#eab308' },
   ];
 
   return (
@@ -32,7 +32,7 @@ export default function CollegeDashboard() {
       <div className="grid-4 mb-8">
         {stats.map(({ label, value, icon: Icon, color }) => (
           <div className="stat-card" key={label}>
-            <div className="icon" style={{ background: `${color}22` }}>
+            <div className="icon" style={{ background: `${color}12`, borderRadius: 12 }}>
               <Icon size={22} color={color} />
             </div>
             <div className="value">{loading ? '—' : value}</div>
@@ -45,7 +45,7 @@ export default function CollegeDashboard() {
         <div className="card">
           <h3 className="font-semibold mb-6">Student Funnel</h3>
           <div className="chart-bar-container">
-            <BarRow label="Total Registered"  val={data?.students?.total || 0} max={data?.students?.total || 0} color="var(--accent)" />
+            <BarRow label="Total Registered"  val={data?.students?.total || 0} max={data?.students?.total || 0} color="var(--primary)" />
             <BarRow label="Eligible (Approved)" val={data?.students?.eligible || 0} max={data?.students?.total || 0} color="var(--success)" />
             <BarRow label="Placed (Selected)" val={data?.students?.selected || 0} max={data?.students?.total || 0} color="var(--warning)" />
           </div>
@@ -54,17 +54,17 @@ export default function CollegeDashboard() {
         <div className="card">
           <h3 className="font-semibold mb-6">Key Metrics</h3>
           <div className="grid-2 gap-4">
-            <div style={{ background: 'var(--bg-glass)', padding: 16, borderRadius: 12, border: '1px solid var(--border)', textAlign: 'center' }}>
-              <div className="text-3xl font-bold text-success mb-1">
+            <div style={{ background: 'var(--bg-primary)', padding: 20, borderRadius: 14, border: '1px solid var(--border)', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--success)', marginBottom: 4 }}>
                 {data?.students?.placementPercentage || 0}%
               </div>
-              <div className="text-xs uppercase tracking-wider text-muted">Placement Rate</div>
+              <div className="text-xs uppercase" style={{ letterSpacing: '0.05em', color: 'var(--text-muted)' }}>Placement Rate</div>
             </div>
-            <div style={{ background: 'var(--bg-glass)', padding: 16, borderRadius: 12, border: '1px solid var(--border)', textAlign: 'center' }}>
-              <div className="text-3xl font-bold text-accent mb-1">
+            <div style={{ background: 'var(--bg-primary)', padding: 20, borderRadius: 14, border: '1px solid var(--border)', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--primary)', marginBottom: 4 }}>
                 {data?.packages?.average ? parseFloat(data.packages.average.toFixed(2)) : 0}
               </div>
-              <div className="text-xs uppercase tracking-wider text-muted">Avg. Package (LPA)</div>
+              <div className="text-xs uppercase" style={{ letterSpacing: '0.05em', color: 'var(--text-muted)' }}>Avg. Package (LPA)</div>
             </div>
           </div>
         </div>

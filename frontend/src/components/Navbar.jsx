@@ -27,8 +27,9 @@ export default function Navbar() {
 
         <ul className="nav-links">
           <li><a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>Features</a></li>
+          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a></li>
           <li><a href="#how-it-works" onClick={(e) => { e.preventDefault(); scrollTo('how-it-works'); }}>How It Works</a></li>
-          <li><a href="#stats" onClick={(e) => { e.preventDefault(); scrollTo('stats'); }}>Stats</a></li>
+          <li><a href="#stats" onClick={(e) => { e.preventDefault(); scrollTo('stats'); }}>About</a></li>
         </ul>
 
         <div className="nav-actions">
@@ -50,8 +51,9 @@ export default function Navbar() {
       <div className={`nav-mobile-overlay${mobileOpen ? ' open' : ''}`}>
         <button className="nav-mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu">✕</button>
         <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>Features</a>
+        <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Services</a>
         <a href="#how-it-works" onClick={(e) => { e.preventDefault(); scrollTo('how-it-works'); }}>How It Works</a>
-        <a href="#stats" onClick={(e) => { e.preventDefault(); scrollTo('stats'); }}>Stats</a>
+        <a href="#stats" onClick={(e) => { e.preventDefault(); scrollTo('stats'); }}>About</a>
         <Link to="/login" onClick={() => setMobileOpen(false)}>Login</Link>
         <Link to="/register" className="nav-btn-primary" onClick={() => setMobileOpen(false)} style={{ marginTop: 8 }}>Get Started</Link>
       </div>

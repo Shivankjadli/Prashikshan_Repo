@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import {
   GraduationCap, Building2, Briefcase, ArrowRight,
   UserPlus, Search, Handshake, Trophy,
-  Github, Twitter, Linkedin, Mail
+  Github, Twitter, Linkedin, Mail,
+  BookOpen, ClipboardList, BarChart3, Shield,
+  FileText, Gift
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import './landing.css';
@@ -42,48 +44,77 @@ export default function LandingPage() {
         </div>
 
         <div className="hero-content">
-          <div className="hero-badge">
-            <span className="hero-badge-dot" />
-            Academia × Industry Interface Platform
+          <div className="hero-text">
+            <div className="hero-badge">
+              <span className="hero-badge-dot" />
+              Academia × Industry Interface Platform
+            </div>
+
+            <h1 className="hero-title">
+              <span className="hero-title-gradient">
+                Bridging the Gap Between Campus & Career
+              </span>
+            </h1>
+
+            <p className="hero-subtitle">
+              Prashikshan connects students, colleges, and industry partners on a single
+              intelligent platform — making placements seamless, transparent, and data-driven.
+            </p>
+
+            <div className="hero-actions">
+              <Link to="/register" className="hero-btn-primary" id="hero-get-started">
+                Get Started <ArrowRight size={18} />
+              </Link>
+              <Link to="/login" className="hero-btn-secondary" id="hero-login">
+                Login to Dashboard
+              </Link>
+            </div>
           </div>
 
-          <h1 className="hero-title">
-            <span className="hero-title-gradient">
-              Bridging the Gap Between Campus & Career
-            </span>
-          </h1>
-
-          <p className="hero-subtitle">
-            Prashikshan connects students, colleges, and industry partners on a single
-            intelligent platform — making placements seamless, transparent, and data-driven.
-          </p>
-
-          <div className="hero-actions">
-            <Link to="/register" className="hero-btn-primary" id="hero-get-started">
-              Get Started <ArrowRight size={18} />
-            </Link>
-            <Link to="/login" className="hero-btn-secondary" id="hero-login">
-              Login to Dashboard
-            </Link>
+          <div className="hero-visual">
+            <div className="hero-visual-circle">
+              <div className="hero-visual-inner">
+                🎓
+              </div>
+            </div>
+            {/* Floating tags */}
+            <div className="hero-float-tag hero-float-tag-1">
+              <span className="tag-dot tag-green" /> Students
+            </div>
+            <div className="hero-float-tag hero-float-tag-2">
+              <span className="tag-dot tag-yellow" /> Internships
+            </div>
+            <div className="hero-float-tag hero-float-tag-3">
+              <span className="tag-dot tag-blue" /> Placements
+            </div>
+            <div className="hero-float-tag hero-float-tag-4">
+              <span className="tag-dot tag-green" /> Colleges
+            </div>
+            <div className="hero-float-tag hero-float-tag-5">
+              <span className="tag-dot tag-yellow" /> Industry
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="hero-stats-row">
-            <div className="hero-stat">
-              <div className="hero-stat-value">10K+</div>
-              <div className="hero-stat-label">Students</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hero-stat-value">500+</div>
-              <div className="hero-stat-label">Companies</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hero-stat-value">150+</div>
-              <div className="hero-stat-label">Colleges</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hero-stat-value">95%</div>
-              <div className="hero-stat-label">Success Rate</div>
-            </div>
+      {/* ── Stats Bar ────────────────────────────── */}
+      <section style={{ padding: '0 24px', marginTop: '-30px', position: 'relative', zIndex: 2 }}>
+        <div className="hero-stats-row" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <div className="hero-stat">
+            <div className="hero-stat-value">10K+</div>
+            <div className="hero-stat-label">Students</div>
+          </div>
+          <div className="hero-stat">
+            <div className="hero-stat-value">500+</div>
+            <div className="hero-stat-label">Companies</div>
+          </div>
+          <div className="hero-stat">
+            <div className="hero-stat-value">150+</div>
+            <div className="hero-stat-label">Colleges</div>
+          </div>
+          <div className="hero-stat">
+            <div className="hero-stat-value">95%</div>
+            <div className="hero-stat-label">Success Rate</div>
           </div>
         </div>
       </section>
@@ -153,6 +184,36 @@ export default function LandingPage() {
               <li><span className="feature-list-check">✓</span> Offer letter generation</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* ── Services ─────────────────────────────── */}
+      <section className="landing-section services-section" id="services">
+        <div className="section-header reveal">
+          <div className="section-overline">What We Provide</div>
+          <h2 className="section-title">Everything You Need, In One Place</h2>
+          <p className="section-subtitle">
+            Comprehensive tools for every step of the placement journey.
+          </p>
+        </div>
+
+        <div className="services-grid">
+          {[
+            { icon: BookOpen, title: 'Skill Assessments', desc: 'Curated quizzes to evaluate and improve technical skills.' },
+            { icon: ClipboardList, title: 'Assignments', desc: 'Real-world tasks assigned by recruiters to test practical ability.' },
+            { icon: BarChart3, title: 'Analytics Dashboard', desc: 'Track placement metrics, student progress, and hiring trends.' },
+            { icon: Shield, title: 'Verified Profiles', desc: 'College-verified student profiles ensure authenticity and trust.' },
+            { icon: FileText, title: 'Application Pipeline', desc: 'End-to-end tracking from application to offer acceptance.' },
+            { icon: Gift, title: 'Offer Management', desc: 'Seamless offer generation, tracking, and acceptance workflow.' },
+          ].map(svc => (
+            <div className="service-card reveal" key={svc.title}>
+              <div className="service-icon">
+                <svc.icon size={24} />
+              </div>
+              <h3 className="service-title">{svc.title}</h3>
+              <p className="service-desc">{svc.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -241,6 +302,7 @@ export default function LandingPage() {
             <div className="footer-col-title">Quick Links</div>
             <ul className="footer-col-links">
               <li><a href="#features">Features</a></li>
+              <li><a href="#services">Services</a></li>
               <li><a href="#how-it-works">How It Works</a></li>
               <li><a href="#stats">Statistics</a></li>
             </ul>
