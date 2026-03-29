@@ -103,9 +103,9 @@ export default function Register() {
                 style={{
                   flex: 1, padding: '10px 12px', fontSize: '0.85rem', fontWeight: 600,
                   borderRadius: '10px', border: 'none', cursor: 'pointer', transition: 'all 0.2s',
-                  background: activeTab === role ? 'linear-gradient(135deg, #16a34a, #15803d)' : 'transparent',
+                  background: activeTab === role ? 'linear-gradient(135deg, #4f46e5, #7c3aed)' : 'transparent',
                   color: activeTab === role ? '#fff' : 'var(--text-muted)',
-                  boxShadow: activeTab === role ? '0 2px 8px rgba(22,163,74,0.2)' : 'none'
+                  boxShadow: activeTab === role ? '0 2px 8px rgba(79,70,229,0.2)' : 'none'
                 }}
               >
                 <span style={{ marginRight: 4 }}>{roleIcons[role]}</span> {role}

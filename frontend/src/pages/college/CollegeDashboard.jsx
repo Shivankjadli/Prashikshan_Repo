@@ -16,11 +16,35 @@ export default function CollegeDashboard() {
   }, []);
 
   const stats = [
-    { label: 'Total Students', value: data?.students?.total || 0, icon: GraduationCap, color: '#16a34a' },
-    { label: 'Approved Students', value: data?.students?.eligible || 0, icon: CheckCircle, color: '#22c55e' },
-    { label: 'Total Jobs', value: data?.jobs?.total || 0, icon: Briefcase, color: '#3b82f6' },
-    { label: 'Total Offers', value: data?.offers?.total || 0, icon: FileText, color: '#eab308' },
+    { label: 'Total Students', value: data?.students?.total || 0, icon: GraduationCap, color: '#4f46e5' },
+    { label: 'Approved Students', value: data?.students?.eligible || 0, icon: CheckCircle, color: '#10b981' },
+    { label: 'Total Jobs', value: data?.jobs?.total || 0, icon: Briefcase, color: '#7c3aed' },
+    { label: 'Total Offers', value: data?.offers?.total || 0, icon: FileText, color: '#f59e0b' },
   ];
+
+  if (loading) {
+    return (
+      <DashboardLayout title="College Dashboard">
+        <div className="page-header">
+          <div className="skeleton skeleton-text lg" style={{ width: '40%' }} />
+          <div className="skeleton skeleton-text sm" style={{ width: '30%', marginTop: 8 }} />
+        </div>
+        <div className="grid-4 mb-8">
+          {[1,2,3,4].map(i => (
+            <div className="skeleton-card" key={i}>
+              <div className="skeleton skeleton-icon" />
+              <div className="skeleton skeleton-value" />
+              <div className="skeleton skeleton-label" />
+            </div>
+          ))}
+        </div>
+        <div className="grid-2">
+          <div className="skeleton-card"><div className="skeleton skeleton-text" /><div className="skeleton skeleton-text sm" /></div>
+          <div className="skeleton-card"><div className="skeleton skeleton-text" /><div className="skeleton skeleton-text sm" /></div>
+        </div>
+      </DashboardLayout>
+    );
+  }
 
   return (
     <DashboardLayout title="College Dashboard">
@@ -35,7 +59,7 @@ export default function CollegeDashboard() {
             <div className="icon" style={{ background: `${color}12`, borderRadius: 12 }}>
               <Icon size={22} color={color} />
             </div>
-            <div className="value">{loading ? '—' : value}</div>
+            <div className="value">{value}</div>
             <div className="label">{label}</div>
           </div>
         ))}

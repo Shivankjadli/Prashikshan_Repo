@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  GraduationCap, Building2, Briefcase, ArrowRight,
-  UserPlus, Search, Handshake, Trophy,
+  ArrowRight, UserPlus, Search, Handshake,
   Github, Twitter, Linkedin, Mail,
   BookOpen, ClipboardList, BarChart3, Shield,
-  FileText, Gift
+  FileText, Gift, Target, Users, Layers, Zap
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import './landing.css';
@@ -79,19 +78,19 @@ export default function LandingPage() {
             </div>
             {/* Floating tags */}
             <div className="hero-float-tag hero-float-tag-1">
-              <span className="tag-dot tag-green" /> Students
+              <span className="tag-dot tag-indigo" /> Students
             </div>
             <div className="hero-float-tag hero-float-tag-2">
-              <span className="tag-dot tag-yellow" /> Internships
+              <span className="tag-dot tag-purple" /> Internships
             </div>
             <div className="hero-float-tag hero-float-tag-3">
-              <span className="tag-dot tag-blue" /> Placements
+              <span className="tag-dot tag-cyan" /> Placements
             </div>
             <div className="hero-float-tag hero-float-tag-4">
-              <span className="tag-dot tag-green" /> Colleges
+              <span className="tag-dot tag-indigo" /> Colleges
             </div>
             <div className="hero-float-tag hero-float-tag-5">
-              <span className="tag-dot tag-yellow" /> Industry
+              <span className="tag-dot tag-purple" /> Industry
             </div>
           </div>
         </div>
@@ -123,66 +122,51 @@ export default function LandingPage() {
       <section className="landing-section features-section" id="features">
         <div className="section-header reveal">
           <div className="section-overline">Platform Features</div>
-          <h2 className="section-title">Three Dashboards, One Ecosystem</h2>
+          <h2 className="section-title">Everything You Need to Succeed</h2>
           <p className="section-subtitle">
-            Each stakeholder gets a purpose-built dashboard
-            designed for their exact workflows.
+            Powerful tools designed for every stakeholder in the placement ecosystem.
           </p>
         </div>
 
         <div className="features-grid">
-          {/* Student */}
           <div className="feature-card reveal">
-            <div className="feature-icon feature-icon-student">
-              <GraduationCap size={26} />
+            <div className="feature-icon feature-icon-indigo">
+              <Target size={26} />
             </div>
-            <h3 className="feature-title">Student Dashboard</h3>
+            <h3 className="feature-title">Internship Tracking</h3>
             <p className="feature-desc">
-              Discover opportunities, build your profile, and track every application
-              from submission to offer.
+              Discover, apply, and track internship opportunities from application to offer letter.
             </p>
-            <ul className="feature-list">
-              <li><span className="feature-list-check">✓</span> Browse & apply for internships</li>
-              <li><span className="feature-list-check">✓</span> Skill assessments & quizzes</li>
-              <li><span className="feature-list-check">✓</span> Assignment submissions</li>
-              <li><span className="feature-list-check">✓</span> Real-time offer tracking</li>
-            </ul>
           </div>
 
-          {/* College */}
           <div className="feature-card reveal">
-            <div className="feature-icon feature-icon-college">
-              <Building2 size={26} />
+            <div className="feature-icon feature-icon-purple">
+              <Users size={26} />
             </div>
-            <h3 className="feature-title">College Dashboard</h3>
+            <h3 className="feature-title">Mentorship Hub</h3>
             <p className="feature-desc">
-              Oversee student progress, approve job postings, and analyse
-              placement performance at a glance.
+              Connect with industry mentors and get guidance for your career growth and skill development.
             </p>
-            <ul className="feature-list">
-              <li><span className="feature-list-check">✓</span> Student tracking & analytics</li>
-              <li><span className="feature-list-check">✓</span> Job & quiz approval workflows</li>
-              <li><span className="feature-list-check">✓</span> Placement reports & insights</li>
-              <li><span className="feature-list-check">✓</span> Multi-department management</li>
-            </ul>
           </div>
 
-          {/* Industry */}
           <div className="feature-card reveal">
-            <div className="feature-icon feature-icon-industry">
-              <Briefcase size={26} />
+            <div className="feature-icon feature-icon-cyan">
+              <Layers size={26} />
             </div>
-            <h3 className="feature-title">Industry Dashboard</h3>
+            <h3 className="feature-title">Role-based Dashboards</h3>
             <p className="feature-desc">
-              Post opportunities, filter candidates with precision,
-              and manage your entire recruitment pipeline.
+              Purpose-built dashboards for students, colleges, and recruiters with tailored workflows.
             </p>
-            <ul className="feature-list">
-              <li><span className="feature-list-check">✓</span> Job posting management</li>
-              <li><span className="feature-list-check">✓</span> Smart candidate filtering</li>
-              <li><span className="feature-list-check">✓</span> Quizzes & assignments</li>
-              <li><span className="feature-list-check">✓</span> Offer letter generation</li>
-            </ul>
+          </div>
+
+          <div className="feature-card reveal">
+            <div className="feature-icon feature-icon-blue">
+              <Zap size={26} />
+            </div>
+            <h3 className="feature-title">Smart Analytics</h3>
+            <p className="feature-desc">
+              Track placement metrics, student progress, and hiring trends with real-time analytics.
+            </p>
           </div>
         </div>
       </section>
@@ -221,18 +205,17 @@ export default function LandingPage() {
       <section className="landing-section how-it-works-section" id="how-it-works">
         <div className="section-header reveal">
           <div className="section-overline">How It Works</div>
-          <h2 className="section-title">From Registration to Placement</h2>
+          <h2 className="section-title">Get Started in 3 Simple Steps</h2>
           <p className="section-subtitle">
-            Four simple steps connect talent with opportunity.
+            From registration to placement — it's that easy.
           </p>
         </div>
 
         <div className="steps-container reveal">
           {[
-            { num: '01', icon: UserPlus, title: 'Create Your Profile', desc: 'Sign up as a student, college, or recruiter and set up your profile in minutes.' },
-            { num: '02', icon: Search, title: 'Discover & Match', desc: 'Browse curated opportunities or find the perfect candidates for your openings.' },
-            { num: '03', icon: Handshake, title: 'Apply & Collaborate', desc: 'Submit applications, take assessments, and engage through a streamlined pipeline.' },
-            { num: '04', icon: Trophy, title: 'Get Placed', desc: 'Receive offers, track placements, and celebrate career milestones together.' },
+            { num: '01', icon: UserPlus, title: 'Sign Up', desc: 'Create your account as a student, college, or recruiter in under a minute.' },
+            { num: '02', icon: Search, title: 'Build Your Profile', desc: 'Add your skills, experience, and preferences to unlock personalized matches.' },
+            { num: '03', icon: Handshake, title: 'Connect & Apply', desc: 'Discover opportunities, take assessments, and land your dream placement.' },
           ].map(step => (
             <div className="step-card" key={step.num}>
               <div className="step-number">{step.num}</div>
@@ -240,6 +223,64 @@ export default function LandingPage() {
               <p className="step-desc">{step.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Testimonials ─────────────────────────── */}
+      <section className="landing-section testimonials-section" id="testimonials">
+        <div className="section-header reveal">
+          <div className="section-overline">Testimonials</div>
+          <h2 className="section-title">Loved by Students & Recruiters</h2>
+          <p className="section-subtitle">
+            Hear from people who've transformed their placement experience.
+          </p>
+        </div>
+
+        <div className="testimonials-grid">
+          <div className="testimonial-card reveal">
+            <div className="testimonial-stars">★★★★★</div>
+            <p className="testimonial-text">
+              "Prashikshan made my placement journey incredibly smooth. I could track every application
+              and received my offer letter within weeks. The dashboard is so intuitive!"
+            </p>
+            <div className="testimonial-author">
+              <div className="testimonial-avatar">AK</div>
+              <div>
+                <div className="testimonial-name">Aarav Kumar</div>
+                <div className="testimonial-role">BTech Student, VJTI Mumbai</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="testimonial-card reveal">
+            <div className="testimonial-stars">★★★★★</div>
+            <p className="testimonial-text">
+              "As a recruiter, finding the right candidates was always challenging. With Prashikshan's
+              smart filtering and quiz assessments, we hire top talent effortlessly."
+            </p>
+            <div className="testimonial-author">
+              <div className="testimonial-avatar">PS</div>
+              <div>
+                <div className="testimonial-name">Priya Sharma</div>
+                <div className="testimonial-role">HR Manager, TechCorp India</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="testimonial-card reveal">
+            <div className="testimonial-stars">★★★★★</div>
+            <p className="testimonial-text">
+              "Managing placements for 500+ students was overwhelming until we started using Prashikshan.
+              The analytics and student tracking features are game-changers."
+            </p>
+            <div className="testimonial-author">
+              <div className="testimonial-avatar">RD</div>
+              <div>
+                <div className="testimonial-name">Dr. Rajesh Desai</div>
+                <div className="testimonial-role">Placement Officer, MIT Pune</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -304,7 +345,7 @@ export default function LandingPage() {
               <li><a href="#features">Features</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#stats">Statistics</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
             </ul>
           </div>
 

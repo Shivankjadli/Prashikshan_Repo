@@ -47,11 +47,35 @@ export default function RecruiterDashboard() {
   const acceptedOffers = offers.filter(o => o.status === 'accepted').length;
 
   const stats = [
-    { label: 'Total Jobs', value: jobs.length, icon: Briefcase, color: '#16a34a' },
-    { label: 'Approved Jobs', value: approvedJobs, icon: Briefcase, color: '#22c55e' },
-    { label: 'Offers Sent', value: offers.length, icon: Gift, color: '#eab308' },
-    { label: 'Accepted', value: acceptedOffers, icon: Users, color: '#3b82f6' },
+    { label: 'Total Jobs', value: jobs.length, icon: Briefcase, color: '#4f46e5' },
+    { label: 'Approved Jobs', value: approvedJobs, icon: Briefcase, color: '#7c3aed' },
+    { label: 'Offers Sent', value: offers.length, icon: Gift, color: '#f59e0b' },
+    { label: 'Accepted', value: acceptedOffers, icon: Users, color: '#10b981' },
   ];
+
+  if (loading) {
+    return (
+      <DashboardLayout title="Recruiter Dashboard">
+        <div className="page-header">
+          <div className="skeleton skeleton-text lg" style={{ width: '50%' }} />
+          <div className="skeleton skeleton-text sm" style={{ width: '35%', marginTop: 8 }} />
+        </div>
+        <div className="grid-4 mb-8">
+          {[1,2,3,4].map(i => (
+            <div className="skeleton-card" key={i}>
+              <div className="skeleton skeleton-icon" />
+              <div className="skeleton skeleton-value" />
+              <div className="skeleton skeleton-label" />
+            </div>
+          ))}
+        </div>
+        <div className="grid-2">
+          <div className="skeleton-card"><div className="skeleton skeleton-text" /><div className="skeleton skeleton-text sm" /></div>
+          <div className="skeleton-card"><div className="skeleton skeleton-text" /><div className="skeleton skeleton-text sm" /></div>
+        </div>
+      </DashboardLayout>
+    );
+  }
 
   return (
     <DashboardLayout title="Recruiter Dashboard">
@@ -66,7 +90,7 @@ export default function RecruiterDashboard() {
             <div className="icon" style={{ background: `${color}12`, borderRadius: 12 }}>
               <Icon size={22} color={color} />
             </div>
-            <div className="value">{loading ? '—' : value}</div>
+            <div className="value">{value}</div>
             <div className="label">{label}</div>
           </div>
         ))}
