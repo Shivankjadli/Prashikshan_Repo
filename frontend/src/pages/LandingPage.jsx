@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import developerPhoto from '../assets/developer.jpg';
 import {
   ArrowRight, UserPlus, Search, Handshake,
   Github, Twitter, Linkedin, Mail,
@@ -306,6 +307,91 @@ export default function LandingPage() {
               <div className="stat-block-label">{stat.label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Developer Section ─────────────────────── */}
+      <section className="landing-section developer-section" id="developer">
+        <div className="section-header reveal">
+          <div className="section-overline">Behind the Code</div>
+          <h2 className="section-title">Meet the Developer</h2>
+          <p className="section-subtitle">
+            The mind behind Prashikshan — building tools that matter.
+          </p>
+        </div>
+
+        <div className="developer-card reveal">
+          <div className="developer-image-col">
+            <div className="developer-image-wrapper">
+              <div className="developer-image-accent" />
+              <img
+                src={developerPhoto}
+                alt="Shivank Jadli — Creator of Prashikshan"
+                className="developer-photo"
+              />
+            </div>
+          </div>
+
+          <div className="developer-info-col">
+            <h3 className="developer-name">Shivank Jadli</h3>
+            <p className="developer-title">
+              Full Stack Developer & Creator of Prashikshan
+            </p>
+            <p className="developer-bio">
+              Passionate developer focused on building platforms that bridge the
+              gap between students, colleges, and industry. Dedicated to creating
+              impactful, user-friendly digital solutions.
+            </p>
+
+            <div className="developer-socials">
+              <a
+                href="https://linkedin.com/in/shivankjadli"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dev-social-link"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://github.com/shivankjadli"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dev-social-link"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href="mailto:hello@prashikshan.com"
+                className="dev-social-link"
+                aria-label="Email"
+              >
+                <Mail size={18} />
+              </a>
+            </div>
+
+            <div className="developer-actions">
+              <a
+                href="https://linkedin.com/in/shivankjadli"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dev-btn-primary"
+                id="dev-connect-btn"
+              >
+                Connect <ArrowRight size={16} />
+              </a>
+              <a
+                href="https://github.com/shivankjadli"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dev-btn-secondary"
+                id="dev-project-btn"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
